@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Outlier Detection and Analysis App 📊
 
 A machine learning-based web application that allows users to analyze numerical datasets for outliers using statistical and machine learning techniques.
@@ -33,3 +34,7 @@ streamlit run src/app.py
 ## Author
 Your Name  
 Engineering Student | Machine Learning Enthusiast
+=======
+# boxPlot
+BoxPlot Visualization &amp; Outlier Detection – A Python tool (work-in-progress) for visualizing data distributions and detecting outliers, with planned enhancements for interactivity and multiple algorithms.
+>>>>>>> f6b1c0b4be7239a4d14bb5ee887ac74698f1aba3
