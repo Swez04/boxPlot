@@ -33,7 +33,8 @@ streamlit run src/app.py
 
 ## Author
 Swez 
-Engineering Student | Machine Learning
+swezbhardwaj@gmail.com
+
 =======
 # boxPlot
 BoxPlot Visualization &amp; Outlier Detection – A Python tool (work-in-progress) for visualizing data distributions and detecting outliers, with planned enhancements for interactivity and multiple algorithms.
