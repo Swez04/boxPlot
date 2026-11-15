@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Models & experiment artifacts (added in later phases)
+models/*.pt
+mlruns/
+mlflow.db
+
+# Secrets
+.env
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Runtime data
+data/
+mlflow/*.db
+mlflow/artifacts/
