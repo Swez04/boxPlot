@@ -1,0 +1,7 @@
+line-length = 120
+target-version = "py310"
+[lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+[lint.isort]
+known-first-party = ["agent", "api", "detectors", "data_utils", "drift", "ensemble", "explain", "tracking", "visualization", "api_client", "analysis"]

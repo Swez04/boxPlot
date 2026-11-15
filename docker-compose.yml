@@ -1,0 +1,35 @@
+# docker compose up --build
+#   UI      http://localhost:8501
+#   API     http://localhost:8000/docs
+#   MLflow  http://localhost:5000
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --artifacts-destination /mlflow/artifacts --serve-artifacts
+    ports: ["5000:5000"]
+    volumes: ["mlflow-data:/mlflow"]
+
+  api:
+    build: { context: ., dockerfile: docker/Dockerfile.api }
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-5-5}
+    ports: ["8000:8000"]
+    volumes: ["uploads:/app/data/uploads"]
+    depends_on: [mlflow]
+
+  ui:
+    build: { context: ., dockerfile: docker/Dockerfile.ui }
+    environment:
+      API_URL: http://api:8000
+    ports: ["8501:8501"]
+    depends_on:
+      api: { condition: service_healthy }
+
+volumes:
+  mlflow-data:
+  uploads:
